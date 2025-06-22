@@ -134,40 +134,35 @@
 </header>
 
 <div class="section">
-  <h2>About Me</h2>
-  <div class="card">
-    <p>I am a certified Reiki healer and Tarot card reader, helping people balance their energy, find clarity, and connect with their inner self. With over 8 years of experience in intuitive healing, I combine ancient wisdom with personalized guidance.</p>
-  </div>
-</div>
-<div class="section">
   <h2>Gallery of Services</h2>
   <div class="slider-container">
     <div class="slider" id="slider">
       <div class="slide">
         <img src="tarot.jpg" alt="Tarot Reading">
-        <p> 🔮 Turn uncertainty into intuition — one card at a time. </p>
+        <p>🔮 Turn uncertainty into intuition — one card at a time.</p>
       </div>
       <div class="slide">
         <img src="reiki.jpg" alt="Reiki Session">
-        <p> ✨ Transform your life with reiki healing by adopting natural ways to healing and harmony. </p>
+        <p>✨ Transform your life with Reiki healing through natural energy alignment.</p>
       </div>
       <div class="slide">
         <img src="chakra.jpg" alt="Chakra Balancing">
-        <p> 🌕 Activate your power through balancing your chakras — and your life </p>
+        <p>🌕 Activate your power through balancing your chakras — and your life.</p>
       </div>
-      <div class="slider-container">
-    <div class="slider" id="slider">
       <div class="slide">
-        <img src="chakra1.jpg" alt="Tarot Reading">
-        <p> 🔮 Unblock, Align, Awaken your seven energy centers and heal your Mind, Body and Soul. </p>
+        <img src="chakra1.jpg" alt="Chakra Healing">
+        <p>🔮 Unblock, Align, Awaken your seven energy centers and heal your Mind, Body, and Soul.</p>
       </div>
-      <div class="slider-container">
-    <div class="slider" id="slider">
       <div class="slide">
-        <img src="reiki1.jpg" alt="Tarot Reading">
-        <p> 🔮 Learn the art of reiki healing energy and unlock your full potential. </p>
+        <img src="reiki1.jpg" alt="Learn Reiki">
+        <p>🧘‍♀️ Learn the art of Reiki energy healing and unlock your full potential.</p>
       </div>
     </div>
+    <button class="slider-btn" onclick="prevSlide()">⟵</button>
+    <button class="slider-btn" onclick="nextSlide()">⟶</button>
+  </div>
+</div>
+
     <button class="slider-btn" onclick="prevSlide()">⟵</button>
     <button class="slider-btn" onclick="nextSlide()">⟶</button>
   </div>
@@ -218,6 +213,7 @@
     else if (index < 0) currentSlide = totalSlides - 1;
     else currentSlide = index;
     slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+
   }
 
   function nextSlide() {
@@ -227,9 +223,7 @@
   function prevSlide() {
     showSlide(currentSlide - 1);
   }
-
-  // Optional: Auto-slide every 5 seconds
-  // setInterval(() => nextSlide(), 5000);
+  setInterval(() => nextSlide(), 5000);
 </script>
 
 </body>
