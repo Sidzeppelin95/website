@@ -4,6 +4,60 @@
   <meta charset="UTF-8">
   <title>Reiki & Tarot Healing by Dr. Sunita Sharma</title>
   <style>
+    .slider-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 10px;
+}
+
+.slide img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background-color: #6d4c41;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.slider-btn:hover {
+  background-color: #4e342e;
+}
+
+.slider-btn:first-of-type {
+  left: 10px;
+}
+
+.slider-btn:last-of-type {
+  right: 10px;
+}
+
     body {
       font-family: Arial, sans-serif;
       background: #fdf6f0;
@@ -85,6 +139,27 @@
     <p>I am a certified Reiki healer and Tarot card reader, helping people balance their energy, find clarity, and connect with their inner self. With over 8 years of experience in intuitive healing, I combine ancient wisdom with personalized guidance.</p>
   </div>
 </div>
+<div class="section">
+  <h2>Gallery of Services</h2>
+  <div class="slider-container">
+    <div class="slider" id="slider">
+      <div class="slide">
+        <img src="tarot.jpg" alt="Tarot Reading">
+        <p>🔮 Tarot Readings — Love, Career & Life Guidance</p>
+      </div>
+      <div class="slide">
+        <img src="reiki.jpg" alt="Reiki Session">
+        <p>✨ Reiki Energy Healing — Remote & In-Person</p>
+      </div>
+      <div class="slide">
+        <img src="chakra.jpg" alt="Chakra Balancing">
+        <p>🌕 Chakra Balancing & Energy Alignment Sessions</p>
+      </div>
+    </div>
+    <button class="slider-btn" onclick="prevSlide()">⟵</button>
+    <button class="slider-btn" onclick="nextSlide()">⟶</button>
+  </div>
+</div>
 
 <div class="section">
   <h2>Services Offered</h2>
@@ -121,6 +196,29 @@
 <footer>
   <p>© 2025 Reiki & Tarot Healing by Sunita Sharma — All Rights Reserved.</p>
 </footer>
+<script>
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    const slider = document.getElementById("slider");
+    const totalSlides = slider.children.length;
+    if (index >= totalSlides) currentSlide = 0;
+    else if (index < 0) currentSlide = totalSlides - 1;
+    else currentSlide = index;
+    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+  }
+
+  function nextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  // Optional: Auto-slide every 5 seconds
+  // setInterval(() => nextSlide(), 5000);
+</script>
 
 </body>
 </html>
